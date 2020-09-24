@@ -20,10 +20,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api', (req, res) => {
+    if(!req.query.q){
     res.render('api', {
         'title': 'API Page',
         'author': 'Kaustubh Mishra'
     })
+    }
+    else {
+        res.render('api', {
+            'title': 'API Page',
+            'author': 'Kaustubh Mishra',
+            'location': req.query.q,
+        }) 
+    }
 })
 
 app.get('/about', (req, res) => {
@@ -31,6 +40,16 @@ app.get('/about', (req, res) => {
         'title': 'About Us',
         'author': 'Kaustubh Mishra'
     })
+})
+
+app.get('/test', (req, res) => {
+    res.send(test);
+    // var x = (req.query.q?req.query.q:'unknown')
+    // api(x.split(' ').join('-'), (response) => {
+    //     res.send({'query': req.query.q,
+    //               'weather': response,
+    //     })
+    // })
 })
 
 app.get('*', (req, res) => {
@@ -41,8 +60,6 @@ app.get('*', (req, res) => {
 })
 // let location = 'lucknow';
 
-// api(process.argv[2].split(' ').join('-'), (response) => {
-//     console.log(response)
-// })
 
-app.listen(3000)
+
+app.listen(5000)

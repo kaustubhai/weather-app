@@ -3,8 +3,14 @@
 {{>header}}
 <body>
     <div class="main-content">
-        <p>Welcome!</p>
+        
+        <form id="weather-form">
+            <input autofocus autocomplete="off" id="weather-form--input" type="text" placeholder="Enter Location" name="location">
+            <button id="weather-form--button" type="submit">Submit</button>
+        </form>
+        <p id="info"></p>
     </div>
 </body>
 {{>footer}}
+<script src="javascript/client.js"></script>
 </html>
