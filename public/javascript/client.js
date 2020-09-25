@@ -1,7 +1,7 @@
 console.log('Client side file loaded')
 
 var result = document.getElementById('info');
-
+var result_feel = document.getElementById('feels')
 var x = document.getElementById('weather-form').addEventListener('submit', (e) => {
     e.preventDefault()
     var loc = document.getElementById('weather-form--input').value;
@@ -15,6 +15,7 @@ fetch(`https://api.weatherapi.com/v1/current.json?key=b7833d2613ff47a1a802205362
         }
         else{
             result.innerHTML = (`Todays temperature is ${data.current.temp_c}°c with ${data.current.condition.text} condition in ${data.location.name}, ${data.location.region}, ${data.location.country}`)
+            result_feel.innerHTML = (`However it feels like ${data.current.feelslike_c}°c out there.`)
         }
     })
 })
