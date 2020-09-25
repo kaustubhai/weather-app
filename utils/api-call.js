@@ -7,12 +7,12 @@ const apiCall = (location, callback) => {
     request({ url: url, json: true }, (err, res) => {
         if (err)
             callback('No Internet founded')
-        else if (res.body.error) {
-            callback(res.body.error.message)
-        }
         else{
-            callback(`Todays temperature is ${res.body.current.temp_c} with ${res.body.current.condition.text} in ${res.body.location.name}, ${res.body.location.region}, ${res.body.location.country}`);
+            callback(res.body);
         }
     })
 }
 module.exports = apiCall;
+
+// res.body.error.message
+// `Todays temperature is ${res.body.current.temp_c} with ${res.body.current.condition.text} in ${res.body.location.name}, ${res.body.location.region}, ${res.body.location.country}`

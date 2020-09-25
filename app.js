@@ -2,7 +2,6 @@ const express = require('express')
 const path = require('path');
 const hbs = require('hbs');
 const apiCall = require('./utils/api-call');
-const api = require('./utils/api-call');
 
 const app = express();
 
@@ -21,18 +20,11 @@ app.get('/', (req, res) => {
     })
 })
 
-// app.get('/api', (req, res) => {
-//     if(!req.query.q){
-//     res.render('/dump.json')
-//     }
-//     else {
-//         res.render('api', {
-//             'title': 'API Page',
-//             'author': 'Kaustubh Mishra',
-//             'location': req.query.q,
-//         }) 
-//     }
-// })
+app.get('/api', (req, res) => {
+        apiCall(req.query.q, (data) => {
+            res.send(data)
+        })
+})
 
 app.get('/about', (req, res) => {
     res.render('details', {

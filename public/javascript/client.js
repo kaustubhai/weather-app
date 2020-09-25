@@ -8,17 +8,18 @@ var x = document.getElementById('weather-form').addEventListener('submit', (e) =
 
     result.innerHTML = "Loading..."
 
-fetch(`https://api.weatherapi.com/v1/current.json?key=b7833d2613ff47a1a80220536201809&q=${loc}`).then((response) => {
-    response.json().then((data) => {
-        if (data.error) {
-            result.innerHTML = (`${data.error.message}`)
-        }
-        else{
-            result.innerHTML = (`Todays temperature is ${data.current.temp_c}°c with ${data.current.condition.text} condition in ${data.location.name}, ${data.location.region}, ${data.location.country}`)
-            result_feel.innerHTML = (`However it feels like ${data.current.feelslike_c}°c out there.`)
-        }
+    fetch(`http://localhost:3000/api?q=${loc}`).then((response) => {
+        response.json().then((data) => {
+            if (data.error) {
+                result.innerHTML = (`${data.error.message}`)
+            }
+            else {
+                console.log(data)
+                result.innerHTML = (`Todays temperature is ${data.current.temp_c}°c with ${data.current.condition.text} condition in ${data.location.name}, ${data.location.region}, ${data.location.country}`)
+                result_feel.innerHTML = (`However it feels like ${data.current.feelslike_c}°c out there.`)
+            }
+        })
     })
-})
 })
 
 // var x = (req.query.q?req.query.q:'unknown')
