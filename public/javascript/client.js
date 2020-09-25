@@ -8,7 +8,7 @@ var x = document.getElementById('weather-form').addEventListener('submit', (e) =
 
     result.innerHTML = "Loading..."
 
-fetch(`http://api.weatherapi.com/v1/current.json?key=b7833d2613ff47a1a80220536201809&q=${loc}`).then((response) => {
+fetch(`https://api.weatherapi.com/v1/current.json?key=b7833d2613ff47a1a80220536201809&q=${loc}`).then((response) => {
     response.json().then((data) => {
         if (data.error) {
             result.innerHTML = (`${data.error.message}`)
