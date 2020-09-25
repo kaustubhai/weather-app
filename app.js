@@ -6,6 +6,8 @@ const api = require('./utils/api-call');
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 hbs.registerPartials(path.join(__dirname, 'views', 'partials'))
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -49,4 +51,4 @@ app.get('*', (req, res) => {
 
 
 
-app.listen(5000)
+app.listen(3000)

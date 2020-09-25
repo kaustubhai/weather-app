@@ -74,7 +74,7 @@ ul{
     outline: none;
     border: 1px solid rgb(221, 221, 221);
     background-color: rgb(247, 247, 247);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 #weather-form--button{
     padding: 5px 15px;
@@ -82,7 +82,7 @@ ul{
     color: white;
     outline: none;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
 }
 #info{
