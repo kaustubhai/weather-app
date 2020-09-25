@@ -8,7 +8,7 @@ var x = document.getElementById('weather-form').addEventListener('submit', (e) =
 
     result.innerHTML = "Loading..."
 
-    fetch(`http://localhost:3000/api?q=${loc}`).then((response) => {
+    fetch(`/api?q=${loc}`).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 result.innerHTML = (`${data.error.message}`)
